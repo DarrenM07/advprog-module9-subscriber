@@ -14,7 +14,7 @@ From the image above, there are 10 queues registered because each time the subsc
 
 
 ## Reflection and Running at least three subscribers
-# Many subscribers
+### Many subscribers
 <img src="img/ss2.png">
 <img src="img/ss3.png">
 
