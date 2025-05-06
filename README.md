@@ -6,3 +6,8 @@
 ## What does it mean? guest:guest@localhost:5672 , what is the first guest, and what is the second guest, and what is localhost:5672 is for? 
 
 **Answer:** The string `guest:guest@localhost:5672` is a connection string used to connect to an AMQP server, typically RabbitMQ. In this format, the first guest refers to the username, and the second guest refers to the password. These are the default credentials provided by RabbitMQ for local development purposes. The term localhost indicates that the AMQP server is running on the local machine, while 5672 is the default port used by RabbitMQ to accept AMQP protocol connections. So essentially, this string tells the client to connect to a RabbitMQ server on the same machine using the guest user credentials over port 5672.
+
+## Simulation slow subscriber
+<img src="img/ss1.png">
+
+From the image above, there are 10 queues registered because each time the subscriber runs, it likely creates a new queue, and RabbitMQ retains them unless they're set to auto-delete. The spike in the message delay graph happens because I added a 1-second delay in the subscriber. When multiple messages are sent quickly, they pile up in the queue, causing the delay spike even if the individual processing time is small.

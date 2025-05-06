@@ -15,15 +15,14 @@ pub struct UserCreatedHandler;
 
 impl MessageHandler<UserCreatedEventMessage> for UserCreatedHandler {
 
-
     fn handle(&self, message: Box<UserCreatedEventMessage>
     ) -> Result<(), HandleError> {
         let ten_millis = time::Duration::from_millis(1000);
         let now = time::Instant::now();
 
-        // thread::sleep(ten_millis);
+        thread::sleep(ten_millis);
 
-        println!("In Ade’s Computer [129500004y]. Message received: {:?}", message);
+        println!("In Darren’s Computer [2306256293]. Message received: {:?}", message);
         Ok(())
     }
 }
