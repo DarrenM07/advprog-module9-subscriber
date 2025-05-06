@@ -11,3 +11,11 @@
 <img src="img/ss1.png">
 
 From the image above, there are 10 queues registered because each time the subscriber runs, it likely creates a new queue, and RabbitMQ retains them unless they're set to auto-delete. The spike in the message delay graph happens because I added a 1-second delay in the subscriber. When multiple messages are sent quickly, they pile up in the queue, causing the delay spike even if the individual processing time is small.
+
+
+## Reflection and Running at least three subscribers
+# Many subscribers
+<img src="img/ss2.png">
+<img src="img/ss3.png">
+
+From the images above, we can see that the message queue spike decreases much faster than before. This is because RabbitMQ distributes the messages across multiple active subscribers, allowing them to process messages in parallel. As a result, the queue doesn't build up, and the system becomes more responsive. This demonstrates that an event-driven system can be scaled horizontally by simply adding more consumers.
